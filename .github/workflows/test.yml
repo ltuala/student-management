@@ -1,4 +1,4 @@
-name: Student Management System Tests
+name: Core tests
 
 on:
   pull_request:
