@@ -1,5 +1,5 @@
 # What is this project
-[![Core tests](https://github.com/ltuala/student_management/actions/workflows/test.yml/badge.svg)](https://github.com/ltuala/student_management/actions/workflows/test.yml)  
+[![Core tests](https://github.com/ltuala/student_management/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/ltuala/student_management/actions/workflows/test.yml)  
 A desktop PyQt6 GUI app for managing university student data with an SQL database backend.
 ![Student Management System](resources/icons/17.png)
 ## How to run
