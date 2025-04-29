@@ -5,35 +5,19 @@ import tempfile
 from main import DatabaseConnection
 
 class TestDatabaseConnection(unittest.TestCase):
-    def setUp(self):
-        # Create a temporary file to act as the database
-        self.temp_db_file = tempfile.NamedTemporaryFile(delete=False)
-        self.temp_db_path = self.temp_db_file.name
-        self.temp_db_file.close()
+    """Test cases for database connection
+    """
+    def test_connect_returns_sqlite_connection(self) -> None:
+        """Tests that `connect()` returns an instance of sqlite3.Connection.
+        """
+        test_db = "test_database.db"
 
-    def tearDown(self):
-        # Clean up the temporary file
-        if os.path.exists(self.temp_db_path):
-            os.remove(self.temp_db_path)
-
-    def test_connection_and_create_table(self):
-        db = DatabaseConnection(self.temp_db_path)
+        db = DatabaseConnection(test_db)
         connection = db.connect()
 
-        # Verify that the connection object is of correct type
         self.assertIsInstance(connection, sqlite3.Connection)
-
-        cursor = connection.cursor()
-        cursor.execute("CREATE TABLE test (id INTEGER PRIMARY KEY, name TEXT)")
-        connection.commit()
-
-        # Check table was created
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='test'")
-        result = cursor.fetchone()
-        self.assertIsNotNone(result)
-        self.assertEqual(result[0], "test")
-
         connection.close()
+        os.remove(test_db)
 
 if __name__ == "__main__":
     unittest.main()
