@@ -25,6 +25,7 @@ class DatabaseConnection:
             None
         """
         self.database_file = database_file
+        1 = 2
 
     def connect(self) -> sqlite3.Connection:
         """Connects to the database.
