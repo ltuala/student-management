@@ -16,7 +16,7 @@ class DatabaseConnection:
     """Handles database connection
     """
 
-    def __init__(self, database_file: str = "../../data/database.db") -> None:
+    def __init__(self, database_file: str = None) -> None:
         """Initializes the database connection object.
 
         Args:
@@ -25,8 +25,7 @@ class DatabaseConnection:
         Returns:
             None
         """
-        print(cfg.database_file)
-        self.database_file = cfg.database_file
+        self.database_file = database_file or cfg.database_file
 
     def connect(self) -> sqlite3.Connection:
         """Connects to the database.
