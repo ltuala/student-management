@@ -17,7 +17,8 @@ class TestDatabaseConnection(unittest.TestCase):
 
         self.assertIsInstance(connection, sqlite3.Connection)
         connection.close()
-        os.remove(test_db)
+        if os.path.exists(test_db):
+            os.remove(test_db)
 
 if __name__ == "__main__":
     unittest.main()

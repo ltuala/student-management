@@ -9,6 +9,7 @@ from PyQt6.QtWidgets import QApplication, QGridLayout, QVBoxLayout, QLabel, QWid
 from PyQt6.QtGui import QAction, QIcon
 import sqlite3
 import sys
+import config.cfg as cfg
 
 
 class DatabaseConnection:
@@ -24,8 +25,8 @@ class DatabaseConnection:
         Returns:
             None
         """
-        self.database_file = database_file
-        1 = 2
+        print(cfg.database_file)
+        self.database_file = cfg.database_file
 
     def connect(self) -> sqlite3.Connection:
         """Connects to the database.
