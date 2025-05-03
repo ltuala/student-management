@@ -1,8 +1,10 @@
 import os
 import sqlite3
 import unittest
-import tempfile
-from main import DatabaseConnection
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/student_management')))
+from db.connection import DatabaseConnection
 
 class TestDatabaseConnection(unittest.TestCase):
     """Test cases for database connection
