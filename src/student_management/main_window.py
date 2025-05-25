@@ -28,7 +28,7 @@ class MainWindow(QMainWindow):
         help_menu_item = self.menuBar().addMenu("&Help")
         edit_menu_item = self.menuBar().addMenu("&Edit")
 
-        add_student_action = QAction(QIcon("../../resources/icons/add.png"),"Add Student", self)
+        add_student_action = QAction(QIcon("resources/icons/add.png"),"Add Student", self)
         add_student_action.triggered.connect(self.insert)
         file_menu_item.addAction(add_student_action)
 
@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         help_menu_item.addAction(about_action)
         about_action.triggered.connect(self.about)
 
-        search_action = QAction(QIcon("../../resources/icons/search.png"),"Search", self)
+        search_action = QAction(QIcon("resources/icons/search.png"),"Search", self)
         search_action.triggered.connect(self.search)
         edit_menu_item.addAction(search_action)
 
